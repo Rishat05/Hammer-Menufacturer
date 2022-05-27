@@ -5,9 +5,11 @@ const Tool = (props) => {
     const { _id, name, img, description, minimumOrderQuantity, availableQuantity, price } = props.tool;
 
     const navigate = useNavigate();
+
     const navigateToItemDetail = id => {
-        navigate(`/tool/${id}`);
+        navigate(`/tools/${id}`);
     }
+
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure className='h-80 w-80 p-2'>
@@ -20,9 +22,12 @@ const Tool = (props) => {
                 <h5>Available-Quantity : {availableQuantity}</h5>
                 <h5>Price : {price}</h5>
                 <div class="card-actions">
-                    <Link to='/purchase'>
-                        <button onClick={() => navigateToItemDetail(_id)} class="btn btn-primary">Order Now</button>
-                    </Link>
+
+                    <button onClick={() => navigateToItemDetail(_id)} className="btn btn-primary">Order Now</button>
+                    {/* <Link to='/purchase'>
+                        <button class="btn btn-primary">Order Now</button>
+                    </Link> */}
+
 
                 </div>
             </div>
