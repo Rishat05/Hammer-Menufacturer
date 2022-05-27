@@ -15,9 +15,10 @@ const Purchase = () => {
             .then(data => setItem(data));
     }, [toolId]);
 
-    const handleQuantity = (e) => {
-        e.preventDefault();
-        let quantity = parseInt(e.target.name.value);
+    const handleQuantity = () => {
+        // e.preventDefault();
+        let val = document.getElementById('quantity');
+        let quantity = parseInt(val.value);
         let minimumQunatity = item.minimumOrderQuantity;
         let maximumQuantity = item.availableQuantity;
         if (quantity < minimumQunatity) {
@@ -29,11 +30,50 @@ const Purchase = () => {
         else {
             setError('');
         }
+    }
+    const handleOrder = (e) => {
+        e.preventDefault();
 
+        const data = {
+            productName: item.name,
+            price: item.price,
+            userName: e.target.name.value,
+            email: e.target.email.value,
+            address: e.target.address.value,
+            phone: e.target.phoneNumber.value,
+            quantity: e.target.quantity.value,
+            payment: 'unpaid',
+
+        }
+        const url = `http://localhost:5000/booking`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+
+
+                if (result.acknowledged) {
+                    alert('Your order is placed succesfully');
+                }
+
+            });
+        e.target.name.value = '';
+        e.target.email.value = '';
+        e.target.address.value = '';
+        e.target.phoneNumber.value = '';
+        e.target.quantity.value = '';
     }
     return (
         <div>
-            <h2>this is purchase {toolId}</h2>
+            <h2>this is purchase </h2>
 
             <div className="card lg:card-side bg-base-100 shadow-xl">
                 <figure><img src={item.img} alt="Album" /></figure>
@@ -42,27 +82,23 @@ const Purchase = () => {
                     <h5>Minimum-Order-Quantity : {item.minimumOrderQuantity}</h5>
                     <h5>Available-Quantity : {item.availableQuantity}</h5>
                     <h5>Price : {item.price}</h5>
-                    <form className='flex flex-col gap-2'>
-                        <input type="text" className="input input-bordered input-primary w-full max-w-xs" value={user.displayName ? user.displayName : 'Empty name'} readOnly />
-                        <input type="email" className="input input-bordered input-primary w-full max-w-xs" value={user.email} readOnly />
-                        <input type="text" placeholder="Your address" className="input input-bordered input-primary w-full max-w-xs" />
-                        <input type="number" placeholder="Your Phone Number" className="input input-bordered input-primary w-full max-w-xs" />
-                    </form>
-                    <form className='flex flex-row gap-2' onSubmit={handleQuantity}>
-                        <input type="text" name='name' placeholder="Your Quantity" className="input input-bordered input-primary w-full max-w-xs" />
-                        <button className="btn btn-secondary">Add Quantity</button>
-                    </form>
-
-                    {
-                        error ? <p className='text-red-500'>{error}</p> : ''
-                    }
-
-                    <div>
-                        <button className="btn btn-primary" disabled={error}>Purchase</button>
-                    </div>
-
                 </div>
             </div>
+            <h2 className='text-primary text-5xl text-center font-bold mt-4 mb-4'>Purchase</h2>
+            <form className='flex flex-col gap-2 w-80 mx-auto mt-3 mb-3' onSubmit={handleOrder}>
+                <input type="text" name='name' className="input input-bordered input-primary w-full max-w-xs" value={user.displayName ? user.displayName : 'Empty name'} readOnly />
+                <input type="email" name='email' className="input input-bordered input-primary w-full max-w-xs" value={user.email} readOnly />
+                <input type="text" placeholder="Your address" className="input input-bordered input-primary w-full max-w-xs" name='address' />
+                <input type="number" name='phoneNumber' placeholder="Your Phone Number" className="input input-bordered input-primary w-full max-w-xs" />
+                <input type="text" name='quantity' placeholder="Your Quantity" className="input input-bordered input-primary w-full max-w-xs" onBlur={handleQuantity} id='quantity' />
+
+
+                {
+                    error ? <p className='text-red-500'>{error}</p> : ''
+                }
+                <button className="btn btn-primary" disabled={error}>Purchase</button>
+            </form>
+
 
         </div>
     );

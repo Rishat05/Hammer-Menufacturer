@@ -20,7 +20,7 @@ const Navbar = () => {
             {
                 user && <li><Link to="/dashboard">Dashboard</Link></li>
             }
-            <li>{user.displayName ? user.displayName : 'Empty-name'}</li>
+            <li>{user ? user.displayName ? user.displayName : 'Empty name' : ''}</li>
             <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
         </>
 
