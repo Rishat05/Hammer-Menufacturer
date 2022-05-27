@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Tool = (props) => {
-    const { name, img, description, minimumOrderQuantity, availableQuantity, price } = props.tool;
+    const { _id, name, img, description, minimumOrderQuantity, availableQuantity, price } = props.tool;
 
+    const navigate = useNavigate();
+    const navigateToItemDetail = id => {
+        navigate(`/tool/${id}`);
+    }
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure className='h-80 w-80 p-2'>
@@ -17,7 +21,7 @@ const Tool = (props) => {
                 <h5>Price : {price}</h5>
                 <div class="card-actions">
                     <Link to='/purchase'>
-                        <button class="btn btn-primary">Order Now</button>
+                        <button onClick={() => navigateToItemDetail(_id)} class="btn btn-primary">Order Now</button>
                     </Link>
 
                 </div>
