@@ -11,7 +11,7 @@ import Purchase from './pages/Purchase/Purchase';
 import Footer from './pages/Shared/Footer/Footer';
 import RequireAuth from './pages/Auth/RequireAuth';
 import MyOrders from './pages/Dashboard/MyOrders';
-import MyProfile from './pages/Dashboard/MyProfile';
+import UserProfile from './pages/Dashboard/UserProfile';
 import MyReview from './pages/Dashboard/MyReview';
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
           </RequireAuth>}></Route>
 
         <Route path='dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
-          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route index element={<UserProfile></UserProfile>}></Route>
           <Route path='myreview' element={<MyReview></MyReview>}></Route>
           <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
           {/* <Route path='payment/:id' element={<Payment></Payment>}></Route>

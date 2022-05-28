@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,6 +23,8 @@ const Signup = () => {
 
     const [createUserWithEmailAndPassword, user, loading, hookError] =
         useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    const [updateProfile] = useUpdateProfile(auth);
 
     const handleEmailChange = (e) => {
         const emailRegex = /\S+@\S+\.\S+/;
@@ -63,8 +65,11 @@ const Signup = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(userInfo);
+        const name = e.target.name.value;
+        updateProfile({ displayName: name });
+        console.log(userInfo, name);
         createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+
     };
     //Error show
     useEffect(() => {
@@ -103,7 +108,7 @@ const Signup = () => {
         <div className="login-container">
             <div className="login-title">Sign up</div>
             <form className="login-form" onSubmit={handleLogin}>
-                <input type="text" placeholder="Your Name" required />
+                <input type="text" placeholder="Your Name" name='name' required />
                 <input type="text" placeholder="Your Email" onChange={handleEmailChange} required />
                 {errors?.email && <p className="error-message">{errors.email}</p>}
                 <div className="relative">
