@@ -61,8 +61,9 @@ const UserProfile = () => {
                         timer: 1500,
                     });
                 }
+                refetch();
             });
-        refetch();
+
         setEditAble(false);
     };
 

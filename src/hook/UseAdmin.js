@@ -18,6 +18,7 @@ const useAdmin = user => {
                 .then(data => {
                     setAdmin(data);
                     setAdminLoading(false);
+                    
                 })
         }
     }, [user])

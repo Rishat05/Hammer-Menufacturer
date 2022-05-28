@@ -15,6 +15,10 @@ import UserProfile from './pages/Dashboard/UserProfile';
 import MyReview from './pages/Dashboard/MyReview';
 import RequireAdmin from './pages/Auth/RequireAdmin';
 import Allusers from './pages/Dashboard/AllUsers';
+import { ToastContainer } from 'react-toastify';
+import AddProduct from './pages/Dashboard/AddProduct';
+
+
 function App() {
   return (
     <div className='max-w-7xl mx-auto px-12'>
@@ -33,14 +37,17 @@ function App() {
           <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
           {/* <Route path='payment/:id' element={<Payment></Payment>}></Route> */}
           <Route path='allusers' element={<RequireAdmin><Allusers></Allusers></RequireAdmin>}></Route>
-          {/* <Route path='addproduct' element={<RequireAdmin><Addproduct></Addproduct></RequireAdmin>}></Route>
-          <Route path='allproduct' element={<RequireAdmin><MangeProduct></MangeProduct></RequireAdmin>}> */}
+
+
+          <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+          {/* <Route path='allproduct' element={<RequireAdmin><MangeProduct></MangeProduct></RequireAdmin>}> */}
         </Route>
 
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

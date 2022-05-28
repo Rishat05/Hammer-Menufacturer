@@ -1,11 +1,13 @@
 import { async } from "@firebase/util";
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-query";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import Swal from "sweetalert2";
-import Loading from "../shared/Loading";
+import Loading from "../Shared/Loading";
+import { toast } from 'react-toastify';
 
-const Allusers = () => {
-    const userUrl = `https://fathomless-woodland-51722.herokuapp.com/allusers`;
+const queryClient = new QueryClient();
+const AllUsers = () => {
+    const userUrl = `http://localhost:5000/allusers`;
     const {
         data: users,
         isLoading,
@@ -17,7 +19,7 @@ const Allusers = () => {
     }
 
     const handleDlt = async (email) => {
-        const url1 = `https://fathomless-woodland-51722.herokuapp.com/allusers/dlt/${email}`;
+        const url1 = `http://localhost:5000/allusers/dlt/${email}`;
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this user!",
@@ -45,7 +47,7 @@ const Allusers = () => {
 
     const handleAdmin = async (user) => {
         const email = user.email;
-        const url1 = `https://fathomless-woodland-51722.herokuapp.com/allusers/makeadmin/${email}`;
+        const url1 = `http://localhost:5000/allusers/makeadmin/${email}`;
         Swal.fire({
             title: "Are you sure?",
             text: `${user?.name ? user.name : ''} promot to admin`,
@@ -57,19 +59,30 @@ const Allusers = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 await fetch(url1, {
-                    method: "POST",
+                    method: "PUT",
                     headers: {
-                        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-                    },
-                    body: JSON.stringify(user)
+
+                        authorization: `Bearer ${localStorage.getItem("accessToken")}`
+                    }
                 })
-                    .then((res) => res.json())
+                    .then((res) => {
+                        if (res.status === 403) {
+                            toast.error('Failed to make admin');
+                        }
+                        res.json()
+                    })
+
                     .then((data) => {
-                        Swal.fire(
-                            'Admin made',
-                            `Email ${user.email}`,
-                            'success'
-                        )
+                        if (data.modifiedCount > 0) {
+                            Swal.fire(
+                                'Admin made',
+                                `Email ${user.email}`,
+                                'success'
+                            );
+                            refetch();
+                        }
+
+
                     });
             }
         });
@@ -109,7 +122,7 @@ const Allusers = () => {
                                             Delete
                                         </button>
                                         {
-                                            !(user.role === 'admin') && <button
+                                            (user.role !== 'admin') && <button
                                                 className="btn btn-xs mx-1"
                                                 onClick={() => handleAdmin(user)}
                                             >
@@ -127,4 +140,11 @@ const Allusers = () => {
     );
 };
 
-export default Allusers;
+// export default AllUsers;
+export default function Wraped() {
+    return (<QueryClientProvider client={queryClient}>
+        <AllUsers />
+    </QueryClientProvider>
+    );
+
+}

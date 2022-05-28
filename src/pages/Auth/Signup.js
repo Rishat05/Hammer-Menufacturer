@@ -63,14 +63,18 @@ const Signup = () => {
         }
     };
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
-        updateProfile({ displayName: name });
         console.log(userInfo, name);
-        createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+        await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+        await updateProfile({ displayName: name });
+
 
     };
+    if (user) {
+        console.log(user);
+    }
     //Error show
     useEffect(() => {
         if (hookError) {
@@ -100,7 +104,7 @@ const Signup = () => {
     const [token] = useToken(user);
     if (token) {
         navigate(from);
-        //   navigate('/');
+
     }
 
 
