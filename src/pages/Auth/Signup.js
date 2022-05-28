@@ -66,14 +66,14 @@ const Signup = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
-        console.log(userInfo, name);
+        // console.log(userInfo, name);
         await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
         await updateProfile({ displayName: name });
 
 
     };
     if (user) {
-        console.log(user);
+        // console.log(user);
     }
     //Error show
     useEffect(() => {

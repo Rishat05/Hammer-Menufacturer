@@ -26,14 +26,14 @@ const Addproduct = () => {
                 if (result.success) {
                     const img = result.data.url;
                     const product = {
-                        productName: data.productName,
-                        productDetails: data.productDetails,
-                        productPrice: data.productPrice,
-                        productQuantity: data.productQuantity,
-                        minOrderQuantity: data.minOrderQuantity,
-                        productImg: img,
+                        name: data.productName,
+                        description: data.productDetails,
+                        price: data.productPrice,
+                        MinimumOrderQuantity: data.productQuantity,
+                        availableQuantity: data.minOrderQuantity,
+                        img: img,
                     };
-                    fetch("http://localhost:5000/tools", {
+                    fetch("https://intense-shelf-07102.herokuapp.com/tools", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

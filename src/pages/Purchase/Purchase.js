@@ -10,7 +10,7 @@ const Purchase = () => {
     const [item, setItem] = useState({});
     const [error, setError] = useState('');
     useEffect(() => {
-        fetch(`http://localhost:5000/tools/${toolId}`)
+        fetch(`https://intense-shelf-07102.herokuapp.com/tools/${toolId}`)
             .then(res => res.json())
             .then(data => setItem(data));
     }, [toolId]);
@@ -45,7 +45,7 @@ const Purchase = () => {
             payment: 'unpaid',
 
         }
-        const url = `http://localhost:5000/booking`;
+        const url = `https://intense-shelf-07102.herokuapp.com/booking`;
         fetch(url, {
             method: 'POST',
             headers: {

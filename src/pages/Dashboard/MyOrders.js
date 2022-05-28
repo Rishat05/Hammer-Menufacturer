@@ -9,7 +9,7 @@ const queryClient = new QueryClient();
 const MyOrders = () => {
 
     const [user] = useAuthState(auth);
-    const userUrl = `http://localhost:5000/booking/${user.email}`;
+    const userUrl = `https://intense-shelf-07102.herokuapp.com/booking/${user.email}`;
     const {
         data: orders,
         isLoading,
@@ -22,7 +22,7 @@ const MyOrders = () => {
     }).then((res) => res.json()));
 
     const handleDltOrder = (id) => {
-        const url = `http://localhost:5000/booking/dlt/${id}`;
+        const url = `https://intense-shelf-07102.herokuapp.com/booking/dlt/${id}`;
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this product!",

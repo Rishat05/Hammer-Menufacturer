@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 const queryClient = new QueryClient();
 const AllUsers = () => {
-    const userUrl = `http://localhost:5000/allusers`;
+    const userUrl = `https://intense-shelf-07102.herokuapp.com/allusers`;
     const {
         data: users,
         isLoading,
@@ -19,7 +19,7 @@ const AllUsers = () => {
     }
 
     const handleDlt = async (email) => {
-        const url1 = `http://localhost:5000/allusers/dlt/${email}`;
+        const url1 = `https://intense-shelf-07102.herokuapp.com/allusers/dlt/${email}`;
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this user!",
@@ -47,7 +47,7 @@ const AllUsers = () => {
 
     const handleAdmin = async (user) => {
         const email = user.email;
-        const url1 = `http://localhost:5000/allusers/makeadmin/${email}`;
+        const url1 = `https://intense-shelf-07102.herokuapp.com/allusers/makeadmin/${email}`;
         Swal.fire({
             title: "Are you sure?",
             text: `${user?.name ? user.name : ''} promot to admin`,
@@ -73,15 +73,12 @@ const AllUsers = () => {
                     })
 
                     .then((data) => {
-                        if (data.modifiedCount > 0) {
-                            Swal.fire(
-                                'Admin made',
-                                `Email ${user.email}`,
-                                'success'
-                            );
-                            refetch();
-                        }
-
+                        Swal.fire(
+                            'Admin made',
+                            `Email ${user.email}`,
+                            'success'
+                        );
+                        refetch();
 
                     });
             }

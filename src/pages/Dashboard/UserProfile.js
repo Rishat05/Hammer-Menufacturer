@@ -17,7 +17,7 @@ const UserProfile = () => {
         handleSubmit,
     } = useForm();
 
-    const userUrl = `http://localhost:5000/userprofile/${user.email}`;
+    const userUrl = `https://intense-shelf-07102.herokuapp.com/userprofile/${user.email}`;
 
     const {
         data: userProfile,
@@ -42,7 +42,7 @@ const UserProfile = () => {
             address: data.address,
             signUpDate: user.metadata.creationTime,
         };
-        fetch(`http://localhost:5000/userupdate/${user.email}`, {
+        fetch(`https://intense-shelf-07102.herokuapp.com/userupdate/${user.email}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
