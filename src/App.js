@@ -13,6 +13,8 @@ import RequireAuth from './pages/Auth/RequireAuth';
 import MyOrders from './pages/Dashboard/MyOrders';
 import UserProfile from './pages/Dashboard/UserProfile';
 import MyReview from './pages/Dashboard/MyReview';
+import RequireAdmin from './pages/Auth/RequireAdmin';
+import Allusers from './pages/Dashboard/AllUsers';
 function App() {
   return (
     <div className='max-w-7xl mx-auto px-12'>
@@ -29,9 +31,9 @@ function App() {
           <Route index element={<UserProfile></UserProfile>}></Route>
           <Route path='myreview' element={<MyReview></MyReview>}></Route>
           <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
-          {/* <Route path='payment/:id' element={<Payment></Payment>}></Route>
+          {/* <Route path='payment/:id' element={<Payment></Payment>}></Route> */}
           <Route path='allusers' element={<RequireAdmin><Allusers></Allusers></RequireAdmin>}></Route>
-          <Route path='addproduct' element={<RequireAdmin><Addproduct></Addproduct></RequireAdmin>}></Route>
+          {/* <Route path='addproduct' element={<RequireAdmin><Addproduct></Addproduct></RequireAdmin>}></Route>
           <Route path='allproduct' element={<RequireAdmin><MangeProduct></MangeProduct></RequireAdmin>}> */}
         </Route>
 
