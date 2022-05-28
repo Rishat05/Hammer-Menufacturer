@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
+import useToken from "../../hook/useToken";
 import "./style.css";
 
 
@@ -70,48 +71,57 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
+    const [token] = useToken(user || googleUser)
     useEffect(() => {
-        if (user) {
-            fetch('http://localhost:5000/login', {
-                method: 'POST',
-                body: JSON.stringify({
-                    email: userInfo.email
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data.token);
-                    localStorage.setItem('accessToken', data.token);
-                    navigate(from);
-                });
-
-
+        if (token) {
+            navigate(from);
         }
-    }, [user]);
+    }, [token]);
 
-    useEffect(() => {
-        if (googleUser) {
-            fetch('http://localhost:5000/login', {
-                method: 'POST',
-                body: JSON.stringify({
-                    email: googleUser.user.email
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    localStorage.setItem('accessToken', data.token);
-                    navigate(from);
-                });
+    // useEffect(() => {
+    //     if (user) {
+    //         fetch('http://localhost:5000/login', {
+    //             method: 'POST',
+    //             body: JSON.stringify({
+    //                 email: userInfo.email
+    //             }),
+    //             headers: {
+    //                 'Content-type': 'application/json; charset=UTF-8',
+    //             },
+    //         })
+    //             .then((response) => response.json())
+    //             .then((data) => {
+    //                 console.log(data.token);
+    //                 localStorage.setItem('accessToken', data.token);
+    //                 navigate(from);
+    //             });
 
 
-        }
-    }, [googleUser]);
+    //     }
+    // }, [user]);
+
+
+
+    // useEffect(() => {
+    //     if (googleUser) {
+    //         fetch('http://localhost:5000/login', {
+    //             method: 'POST',
+    //             body: JSON.stringify({
+    //                 email: googleUser.user.email
+    //             }),
+    //             headers: {
+    //                 'Content-type': 'application/json; charset=UTF-8',
+    //             },
+    //         })
+    //             .then((response) => response.json())
+    //             .then((data) => {
+    //                 localStorage.setItem('accessToken', data.token);
+    //                 navigate(from);
+    //             });
+
+
+    //     }
+    // }, [googleUser]);
 
 
 

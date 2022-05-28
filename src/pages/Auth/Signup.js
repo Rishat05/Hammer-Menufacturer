@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
+import useToken from "../../hook/useToken";
 import "./style.css";
 
 const Signup = () => {
@@ -85,11 +86,18 @@ const Signup = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
-    useEffect(() => {
-        if (user) {
-            navigate(from);
-        }
-    }, [user]);
+    // useEffect(() => {
+    //     if (user) {
+    //         navigate(from);
+    //     }
+    // }, [user]);
+
+    const [token] = useToken(user);
+    if (token) {
+        navigate(from);
+        //   navigate('/');
+    }
+
 
     return (
         <div className="login-container">
@@ -109,8 +117,7 @@ const Signup = () => {
                     onChange={handleConfirmPasswordChange}
                     required
                 />
-                <input type="text" placeholder="Your Address" required />
-                <br />
+
                 <button className="my-button">Sign up</button>
 
                 <ToastContainer />

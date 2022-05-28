@@ -55,8 +55,8 @@ const MyOrders = () => {
                 {" "}
                 Total number of order : {orders?.length}
             </h1>
-            <div class="overflow-x-auto">
-                <table class="table w-3/4 flex justify-center items-center mx-auto">
+            <div className="overflow-x-auto">
+                <table className="table w-3/4 flex justify-center items-center mx-auto">
                     <thead>
                         <tr>
                             <th></th>
@@ -72,7 +72,7 @@ const MyOrders = () => {
                                 <th className="text-accent text-base">{index + 1}</th>
                                 <td className="text-accent text-base">{order?.productName}</td>
                                 <td className="text-accent text-base">
-                                    {order?.orderedQuantity}
+                                    {order?.quantity}
                                 </td>
                                 <td className="text-accent text-base">
                                     {(order.payment == "unpaid") ? (

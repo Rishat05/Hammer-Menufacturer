@@ -21,11 +21,11 @@ const Tool = (props) => {
                 <h5>Minimum-Order-Quantity : {minimumOrderQuantity}</h5>
                 <h5>Available-Quantity : {availableQuantity}</h5>
                 <h5>Price : {price}</h5>
-                <div class="card-actions">
+                <div className="card-actions">
 
                     <button onClick={() => navigateToItemDetail(_id)} className="btn btn-primary">Order Now</button>
                     {/* <Link to='/purchase'>
-                        <button class="btn btn-primary">Order Now</button>
+                        <button className="btn btn-primary">Order Now</button>
                     </Link> */}
 
 
