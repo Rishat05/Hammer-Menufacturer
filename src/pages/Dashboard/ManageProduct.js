@@ -51,8 +51,8 @@ const ManageProduct = () => {
                 {" "}
                 Total number of Product : {products?.length}
             </h1>
-            <div class="overflow-x-auto">
-                <table class="table w-3/4 flex justify-center items-center mx-auto">
+            <div className="overflow-x-auto">
+                <table className="table w-3/4 flex justify-center items-center mx-auto">
                     <thead>
                         <tr>
                             <th></th>
@@ -83,8 +83,8 @@ const ManageProduct = () => {
                         })}
                     </tbody>
                 </table>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
