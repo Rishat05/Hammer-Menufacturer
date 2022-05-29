@@ -87,7 +87,7 @@ const AllUsers = () => {
     };
 
     return (
-        <div>
+        <div className="mt-40">
             <h1 className="text-accent text-lg font-bold text-center my-5">
                 {" "}
                 Total number of user : {users?.length}

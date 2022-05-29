@@ -12,19 +12,19 @@ const Summery = () => {
 
                         <div className="stat" >
                             <div className="stat-value text-sky-600 text-center" > <FaUsers></FaUsers></div >
-                            <div className="stat-value" > 273 +</div >
-                            <div className="stat-title text-sky-600 text-2xl" > 100 + Customer</div >
+                            <div className="stat-value" >100+ </div >
+                            <div className="stat-title text-sky-600 text-2xl" >Customer</div >
                         </div >
                         <div className="stat " >
                             <div className="stat-value text-sky-600 text-center" > <FaFontAwesomeFlag></FaFontAwesomeFlag></div >
-                            <div className="stat-value" > 72</div >
-                            <div className="stat-title text-sky-600 text-2xl" > 120M + Annual Revenue</div >
+                            <div className="stat-value" >120M+</div >
+                            <div className="stat-title text-sky-600 text-2xl" >  Annual Revenue</div >
                         </div >
 
                         <div className="stat" >
                             <div className="stat-value text-sky-600" > <FaLaptop></FaLaptop></div >
-                            <div className="stat-value" > 535 +</div >
-                            <div className="stat-title text-sky-600 text-2xl" > 50 + Tools</div >
+                            <div className="stat-value" >50+ </div >
+                            <div className="stat-title text-sky-600 text-2xl" > Tools</div >
                         </div >
 
 

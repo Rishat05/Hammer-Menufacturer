@@ -7,7 +7,7 @@ const Dashboard = () => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
     return (
-        <div className="drawer drawer-mobile">
+        <div className="drawer drawer-mobile mt-5">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
                 <h2>Dashboard</h2>
@@ -26,9 +26,9 @@ const Dashboard = () => {
 
                     {admin.admin && <li><Link to={'/dashboard/addproduct'} className="text-secondary font-semibold">Add products</Link></li>}
 
-                    {admin.admin && <li><Link to={'/dashboard/allproduct'} className="text-secondary font-semibold">Mange product</Link></li>}
+                    {admin.admin && <li><Link to={'/dashboard/allproduct'} className="text-secondary font-semibold">Manage product</Link></li>}
 
-                    {admin.admin && <li><Link to={'/dashboard/manageallproducts'} className="text-secondary font-semibold">Mange All products</Link></li>}
+                    {admin.admin && <li><Link to={'/dashboard/manageallproducts'} className="text-secondary font-semibold">Manage All Orders</Link></li>}
                 </ul>
 
             </div>

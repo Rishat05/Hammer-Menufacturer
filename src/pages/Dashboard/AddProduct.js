@@ -53,7 +53,7 @@ const Addproduct = () => {
     };
 
     return (
-        <div className="lg:w-1/2 sm:w-3/4 px-5 mx-auto">
+        <div className="lg:w-1/2 sm:w-3/4 px-5 mx-auto mt-40">
             <h1 className="text-accent font-bold text-2xl mx-auto mt-5 text-center">
                 Add new product
             </h1>
