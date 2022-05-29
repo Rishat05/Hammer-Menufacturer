@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import Contact from './Contact';
 import CountOfView from './CountOfView/CountOfView';
+import LatestConstruction from './LatestConstruction';
 import Review from './Review';
 import ShowReview from './ShowReview';
 import Summery from './Summery/Summery';
@@ -15,8 +16,7 @@ const Home = () => {
             <Tools></Tools>
             <Summery></Summery>
             <ShowReview></ShowReview>
-            <Review></Review>
-            <CountOfView></CountOfView>
+            <LatestConstruction></LatestConstruction>
             <Contact></Contact>
         </div>
     );

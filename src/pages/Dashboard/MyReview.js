@@ -12,7 +12,7 @@ const MyReview = () => {
         const addedBy = user.email;
         const review = { ...data, addedBy };
         // console.log(review);
-        const url = `http://localhost:5000/review`;
+        const url = `https://intense-shelf-07102.herokuapp.com/review`;
         fetch(url, {
             method: 'POST',
             headers: {
