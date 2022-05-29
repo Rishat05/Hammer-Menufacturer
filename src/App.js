@@ -18,6 +18,8 @@ import Allusers from './pages/Dashboard/AllUsers';
 import { ToastContainer } from 'react-toastify';
 import AddProduct from './pages/Dashboard/AddProduct';
 import MangeProduct from './pages/Dashboard/ManageProduct';
+import PageNotFound from './pages/Shared/PageNotFound';
+import MyPortFolio from './pages/MyPortFolio/MyPortFolio';
 
 
 function App() {
@@ -41,8 +43,10 @@ function App() {
           <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
           <Route path='allproduct' element={<RequireAdmin><MangeProduct></MangeProduct></RequireAdmin>}> </Route>
         </Route>
+        <Route path='/myportfolio' element={<MyPortFolio></MyPortFolio>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
+        <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>
