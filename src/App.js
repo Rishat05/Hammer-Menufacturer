@@ -20,6 +20,7 @@ import AddProduct from './pages/Dashboard/AddProduct';
 import MangeProduct from './pages/Dashboard/ManageProduct';
 import PageNotFound from './pages/Shared/PageNotFound';
 import MyPortFolio from './pages/MyPortFolio/MyPortFolio';
+import ManageAllOrders from './pages/Dashboard/ManageAllOrders';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path='allusers' element={<RequireAdmin><Allusers></Allusers></RequireAdmin>}></Route>
           <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
           <Route path='allproduct' element={<RequireAdmin><MangeProduct></MangeProduct></RequireAdmin>}> </Route>
+          <Route path='manageallproducts' element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}> </Route>
         </Route>
         <Route path='/myportfolio' element={<MyPortFolio></MyPortFolio>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
