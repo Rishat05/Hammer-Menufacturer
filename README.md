@@ -1,6 +1,24 @@
-# Getting Started with Create React App
+# Hammer 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+site link : https://hammermenufacturer.web.app/
+
+* Login
+* Signup
+* product add
+* Give Review
+* Make Admin
+* User profile Update
+* delete user
+
+
+# technology
+* Mongodb
+* Firebase
+* javascript
+* React 
+
+# framework
+* tailwind css
 
 ## Available Scripts
 
