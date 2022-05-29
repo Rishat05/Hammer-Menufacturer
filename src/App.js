@@ -24,7 +24,7 @@ import MyPortFolio from './pages/MyPortFolio/MyPortFolio';
 
 function App() {
   return (
-    <div className='max-w-7xl mx-auto px-12'>
+    <div className='lg:max-w-7xl mx-auto lg:px-12 px-2'>
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>

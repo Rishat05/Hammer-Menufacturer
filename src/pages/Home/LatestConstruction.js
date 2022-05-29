@@ -8,7 +8,7 @@ const LatestConstruction = () => {
         <div>
             <h3 className='text-primary text-5xl text-center font-bold mb-4'>Our Latest Construction</h3>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-full bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={latest1} alt="Shoes" className="rounded-xl h-56" />
                     </figure>
@@ -17,7 +17,7 @@ const LatestConstruction = () => {
 
                     </div>
                 </div >
-                <div className="card w-96 bg-base-100 shadow-xl" >
+                <div className="card w-full bg-base-100 shadow-xl" >
                     <figure className="px-10 pt-10" >
                         <img src={latest2} alt="Shoes" className="rounded-xl h-56" />
                     </figure >
@@ -26,7 +26,7 @@ const LatestConstruction = () => {
 
                     </div >
                 </div >
-                <div className="card w-96 bg-base-100 shadow-xl" >
+                <div className="card w-full bg-base-100 shadow-xl" >
                     <figure className="px-10 pt-10" >
                         <img src={latest3} alt="Shoes" className="rounded-xl h-56" />
                     </figure >

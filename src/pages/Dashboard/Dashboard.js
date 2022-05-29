@@ -7,14 +7,14 @@ const Dashboard = () => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
     return (
-        <div className="drawer">
-            <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content">
-                <label htmlFor="dashboard-drawer" className="text-black font-bold mt-10"><span className='border-2 border-indigo-600 rounded-r-lg p-2 mt-10 text-2xl'>&gt;</span> </label>
+        <div className="drawer drawer-mobile">
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content flex flex-col items-center justify-center">
+                <h2>Dashboard</h2>
                 <Outlet></Outlet>
             </div>
             <div className="drawer-side">
-                <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
+                <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
 
                     <li><Link to={'/dashboard'} className="text-secondary font-semibold">Profile</Link></li>
@@ -27,10 +27,12 @@ const Dashboard = () => {
                     {admin.admin && <li><Link to={'/dashboard/addproduct'} className="text-secondary font-semibold">Add products</Link></li>}
 
                     {admin.admin && <li><Link to={'/dashboard/allproduct'} className="text-secondary font-semibold">Mange product</Link></li>}
-
                 </ul>
+
             </div>
         </div>
+
+
     )
 }
 
