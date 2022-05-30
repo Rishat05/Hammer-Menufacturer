@@ -14,7 +14,7 @@ const CheckOut = ({ order, cost }) => {
     // console.log(price);
 
     useEffect(() => {
-        const url = 'http://localhost:5000/create-payment-intent';
+        const url = 'https://intense-shelf-07102.herokuapp.com/create-payment-intent';
 
         const amount = { price };
         // console.log(amount);
@@ -88,7 +88,7 @@ const CheckOut = ({ order, cost }) => {
                 appointment: order?._id,
                 transactionId: paymentIntent.id
             }
-            const url = `http://localhost:5000/booking/makepayment/${order?._id}`;
+            const url = `https://intense-shelf-07102.herokuapp.com/booking/makepayment/${order?._id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

@@ -11,7 +11,7 @@ const Payment = () => {
     const { id } = useParams();
     const stripePromise = loadStripe('pk_test_51L52iAHqq9NKezDu9BiIFnpHBgMlm17FFgT1nZ0dSjnrxn2xfDrbnbb542Dsfr4zG65KatWUqW4bymA82OrNWTyN00RFQ4mVAe');
 
-    const url = `http://localhost:5000/booking/${id}`;
+    const url = `https://intense-shelf-07102.herokuapp.com/booking/${id}`;
     const {
         data: order,
         isLoading,
