@@ -46,8 +46,8 @@ const ManageProduct = () => {
     }
 
     return (
-        <div>
-            <h1 className="text-accent text-lg font-bold text-center my-5">
+        <div >
+            <h1 className="text-accent text-lg font-bold text-center my-2">
                 {" "}
                 Total number of Product : {products?.length}
             </h1>
@@ -75,7 +75,7 @@ const ManageProduct = () => {
                                             className="btn btn-xs mx-1"
                                             onClick={() => handleDltProduct(product._id)}
                                         >
-                                            Delete
+                                            Cancel
                                         </button>
                                     </td>
                                 </tr>

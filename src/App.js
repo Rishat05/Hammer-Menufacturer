@@ -21,6 +21,7 @@ import MangeProduct from './pages/Dashboard/ManageProduct';
 import PageNotFound from './pages/Shared/PageNotFound';
 import MyPortFolio from './pages/MyPortFolio/MyPortFolio';
 import ManageAllOrders from './pages/Dashboard/ManageAllOrders';
+import Payment from './pages/Dashboard/Payment';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
           <Route index element={<UserProfile></UserProfile>}></Route>
           <Route path='myreview' element={<MyReview></MyReview>}></Route>
           <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
-          {/* <Route path='payment/:id' element={<Payment></Payment>}></Route> */}
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='allusers' element={<RequireAdmin><Allusers></Allusers></RequireAdmin>}></Route>
           <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
           <Route path='allproduct' element={<RequireAdmin><MangeProduct></MangeProduct></RequireAdmin>}> </Route>

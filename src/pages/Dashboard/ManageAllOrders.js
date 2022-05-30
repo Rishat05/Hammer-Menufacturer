@@ -7,8 +7,16 @@ const ManageAllOrders = () => {
             .then(res => res.json())
             .then(data => setorders(data));
     }, []);
+
+    const handleShipped = () => {
+        document.getElementById('pending').innerHTML = 'Shipped';
+        document.getElementById('shipped').style.display = 'none';
+
+
+    }
+
     return (
-        <div className='mt-80'>
+        <div >
             <h1 className="text-accent text-lg font-bold text-center my-5">
                 {" "}
                 Total number of Product : {orders?.length}
@@ -35,7 +43,17 @@ const ManageAllOrders = () => {
                                     <td className="text-accent text-base">{product?.phone}</td>
                                     <td className="text-accent text-base">{product?.productName}</td>
                                     <td className="text-accent text-base">{product?.quantity}</td>
-                                    <td className="text-accent text-base">{product?.payment}</td>
+                                    <td className="text-accent text-base">
+                                        {/* <button className="btn btn-xs mx-1">{product?.payment}</button> */}
+                                        {(product?.payment == "unpaid") ? (
+                                            <button className="btn btn-xs mx-1">Unpaid</button>
+                                        ) : (
+                                            <>
+                                                <button className="btn btn-xs mx-1 btn-success" id="pending">Pending</button>
+                                                <button onClick={handleShipped} id='shipped' className="btn btn-xs mx-1 ">Shipped</button>
+                                            </>
+                                        )}
+                                    </td>
 
                                 </tr>
                             );

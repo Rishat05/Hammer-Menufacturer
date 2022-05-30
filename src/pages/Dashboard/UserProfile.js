@@ -69,7 +69,7 @@ const UserProfile = () => {
 
 
     return (
-        <div className="mx-auto mt-5 w-3/4 flex justify-around">
+        <div className="mx-auto  w-3/4 flex justify-around">
             <div>
                 <h1 className="text-accent text-3xl">
                     Hello <b>{user.displayName ? user.displayName : "empty name"}</b>

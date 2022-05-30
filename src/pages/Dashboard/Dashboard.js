@@ -7,10 +7,10 @@ const Dashboard = () => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
     return (
-        <div className="drawer drawer-mobile mt-5">
+        <div className="drawer drawer-mobile ">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center justify-center">
-                <h2>Dashboard</h2>
+            <div className="drawer-content ">
+
                 <Outlet></Outlet>
             </div>
             <div className="drawer-side">

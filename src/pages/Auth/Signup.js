@@ -66,7 +66,7 @@ const Signup = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
-        console.log(name);
+        // console.log(name);
         await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
         await updateProfile({ displayName: name });
 

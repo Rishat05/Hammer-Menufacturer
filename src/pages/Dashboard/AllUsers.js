@@ -87,7 +87,7 @@ const AllUsers = () => {
     };
 
     return (
-        <div className="mt-40">
+        <div className="">
             <h1 className="text-accent text-lg font-bold text-center my-5">
                 {" "}
                 Total number of user : {users?.length}
@@ -97,9 +97,9 @@ const AllUsers = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
+
                             <th>Email</th>
-                            <th>Sign up date</th>
+
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -108,9 +108,9 @@ const AllUsers = () => {
                             return (
                                 <tr key={user._id}>
                                     <th className="text-accent text-base">{index + 1}</th>
-                                    <td className="text-accent text-base">{user.name}</td>
+
                                     <td className="text-accent text-base">{user.email}</td>
-                                    <td className="text-accent text-base">{user.signUpDate}</td>
+
                                     <td>
                                         <button
                                             className="btn btn-xs mx-1"
