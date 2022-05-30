@@ -14,7 +14,7 @@ const CheckOut = ({ order, cost }) => {
     // console.log(price);
 
     useEffect(() => {
-        const url = 'https://intense-shelf-07102.herokuapp.com/create-payment-intent';
+        const url = 'https://dry-earth-97304.herokuapp.com/create-payment-intent';
 
         const amount = { price };
         // console.log(amount);
@@ -88,7 +88,7 @@ const CheckOut = ({ order, cost }) => {
                 appointment: order?._id,
                 transactionId: paymentIntent.id
             }
-            const url = `https://intense-shelf-07102.herokuapp.com/booking/makepayment/${order?._id}`;
+            const url = `https://dry-earth-97304.herokuapp.com/booking/makepayment/${order?._id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

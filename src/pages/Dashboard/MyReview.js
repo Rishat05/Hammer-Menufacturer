@@ -13,7 +13,7 @@ const MyReview = () => {
         const addedBy = user.email;
         const review = { ...data, addedBy };
         // console.log(review);
-        const url = `https://intense-shelf-07102.herokuapp.com/review`;
+        const url = `https://dry-earth-97304.herokuapp.com/review`;
         fetch(url, {
             method: 'POST',
             headers: {

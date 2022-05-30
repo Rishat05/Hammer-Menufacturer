@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const ManageAllOrders = () => {
     const [orders, setorders] = useState([]);
     useEffect(() => {
-        fetch('https://intense-shelf-07102.herokuapp.com/booking')
+        fetch('https://dry-earth-97304.herokuapp.com/booking')
             .then(res => res.json())
             .then(data => setorders(data));
     }, []);

@@ -4,7 +4,7 @@ import Tool from './Tool';
 const Tools = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        fetch('https://intense-shelf-07102.herokuapp.com/tools')
+        fetch('https://dry-earth-97304.herokuapp.com/tools')
             .then(res => res.json())
             .then(data => setTools(data));
     }, []);

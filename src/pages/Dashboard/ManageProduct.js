@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading';
 const queryClient = new QueryClient();
 const ManageProduct = () => {
 
-    const productUrl = `https://intense-shelf-07102.herokuapp.com/tools`;
+    const productUrl = `https://dry-earth-97304.herokuapp.com/tools`;
     const {
         data: products,
         isLoading,
@@ -19,7 +19,7 @@ const ManageProduct = () => {
     }
 
     const handleDltProduct = async (id) => {
-        const url1 = `https://intense-shelf-07102.herokuapp.com/tools/dlt/${id}`;
+        const url1 = `https://dry-earth-97304.herokuapp.com/tools/dlt/${id}`;
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this product!",
