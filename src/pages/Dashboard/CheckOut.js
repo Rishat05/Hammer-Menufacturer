@@ -21,7 +21,7 @@ const CheckOut = ({ order, cost }) => {
 
         fetch(url, {
             method: 'POST',
-            // mode: 'no-cors',
+            mode: 'no-cors',
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

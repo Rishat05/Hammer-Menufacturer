@@ -18,7 +18,7 @@ const Payment = () => {
         refetch,
     } = useQuery(["order", id], () => fetch(url, {
         method: 'GET',
-        // mode: "no-cors",
+        mode: "no-cors",
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
